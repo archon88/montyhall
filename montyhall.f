@@ -87,13 +87,19 @@ C     For keeper
       end do
       
       write(17,*) 'Out of ',no_iterations,'tries, changer succeeded ', 
-     +     changer_success, ' times.'
+     +     changer_success, ' times.', 'This corresponds to a success ',
+     +     'rate of ', 100*changer_success/no_iterations,'%.'
       
       write(18,*) 'Out of ',no_iterations,'tries, keeper succeeded ', 
-     +     keeper_success, ' times.'
+     +     keeper_success, ' times.', 'This corresponds to a success ',
+     +     'rate of ', 100*keeper_success/no_iterations,'%.'
   
       close(17)
       close(18)
+      
+      print*,'The success rates of the change/keep strategies were ',   &
+     &      100*changer_success/no_iterations,'% and ', 
+     &      100*keeper_success/no_iterations,'% respectively.'
 
       return
       end
